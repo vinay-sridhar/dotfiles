@@ -1,0 +1,8 @@
+show=drun 
+insensitive=true 
+height=20%
+width=30%
+allow_images=true
+allow_markup=true
+image_size=15
+matching=fuzzy
