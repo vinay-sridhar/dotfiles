@@ -103,6 +103,7 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 
 -- Github copilot setting tab map 
 vim.g.copilot_no_tab_map = true
+vim.g.copilot_filetypes = {markdown = true}
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- Set highlight on search
