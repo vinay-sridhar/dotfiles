@@ -8,6 +8,6 @@
 - Terminal task manager: bottom
 
 # Setup
-![Setup screenshot](./screenshots/2023-03-30.png)
+![Setup screenshot](./screenshots/2023-04-01.png)
 
 Waybar config C: [linuxmobile/hyprland-dots](https://github.com/linuxmobile/hyprland-dots)

@@ -23,7 +23,7 @@ set $menu exec wofi --show drun --term $term
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/B1Yf0uU.jpg fill
+output * bg ~/Pictures/Wallpapers/ogzqgtr6ul391.jpg fill
 #
 # Example configuration:
 #
