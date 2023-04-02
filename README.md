@@ -1,4 +1,3 @@
-# Fedora 37 Server Minimal install 
 - Window manager: sway
 - Status bar: Waybar
 - Launcher: wofi
