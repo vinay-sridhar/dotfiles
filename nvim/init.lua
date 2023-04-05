@@ -229,6 +229,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>rp', ':w<CR>:!python %<CR>', { desc = '[R]un [P]ython' })
 vim.keymap.set('n', '<leader>rc', ':w<CR>:!gcc % && ./a.out<CR>', { desc = '[R]un [C]' })
+-- Strike-through current line
+vim.api.nvim_set_keymap('n', '<leader>st', ':s/./̶&/g<CR>', { noremap = true })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
