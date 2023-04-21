@@ -230,7 +230,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>rp', ':w<CR>:!python %<CR>', { desc = '[R]un [P]ython' })
 vim.keymap.set('n', '<leader>rc', ':w<CR>:!gcc % && ./a.out<CR>', { desc = '[R]un [C]' })
 -- Strike-through current line
-vim.api.nvim_set_keymap('n', '<leader>st', ':s/./̶&/g<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>st', ':s/./̶&/g<CR>:m$<CR>', { desc = '[S]trike [T]hrough and move to end' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`

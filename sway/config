@@ -99,7 +99,10 @@ exec --no-startup-id autotiling
 exec --no-startup-id systemctl --user stop pipewire.service pipewire.socket
 
 # Launch apps
-exec --no-startup-id firefox-wayland
+exec firefox-wayland
+
+# Notification Daemon
+exec --no-startup-id swaync
 
 # Add gaps between windows showing the wallpaper behind
 gaps inner 4
@@ -119,10 +122,16 @@ for_window [class=".*"] border_radius 10
     bindsym $mod+Return exec $term
 
     # Start ranger on $term 
-    bindsym $mod+Shift+Return exec $term -e ranger
+    bindsym $mod+Shift+Return exec $term -t ranger -e ranger
 
     # Start btm on $term with ctrl+alt+delete 
-    bindsym ctrl+Mod1+Delete exec $term -e btm
+    bindsym ctrl+Mod1+Delete exec $term -t btm -e btm
+
+    # Toggle control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
+
+    # Mirror $laptop_mon
+    bindsym $mod+m exec $term -e wl-mirror $laptop_mon
 
     # Kill focused window
     bindsym $mod+q kill

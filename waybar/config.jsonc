@@ -9,7 +9,7 @@
     // Choose the order of the modules
     "modules-left": ["clock", "sway/scratchpad", "sway/mode", "sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "battery"],
+    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "custom/notification", "battery"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
@@ -27,15 +27,6 @@
             "default": ""
           }
      },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{icon} {caps}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -51,24 +42,48 @@
         "interval": 7200,
         "format": " {}",
     },
+    "custom/notification": {
+                "tooltip": false,
+                "format": "{icon}",
+                "format-icons": {
+                     "notification": "<span foreground='red'><sup></sup></span>",
+                     "none": "",
+                     "dnd-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-none": "",
+                     "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "inhibited-none": "",
+                     "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-inhibited-none": ""
+                },
+                "return-type": "json",
+                "exec-if": "which swaync-client",
+                "exec": "swaync-client -swb",
+                "on-click": "swaync-client -t -sw",
+                "on-click-right": "swaync-client -d -sw",
+                "escape": true
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
     	"format": "{:%I:%M %p   %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "firefox https://calendar.google.com/calendar/u/0/r/week",
+        "on-click-right": "firefox --new-window https://calendar.google.com/calendar/u/0/r/week"
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false, 
+        "on-click": "alacritty -e btm"
     },
     "memory": {
         "format": "{}% 🁐",
+        "on-click": "alacritty -e btm"
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon}",
+        "format": "☼ {percent}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
@@ -94,8 +109,10 @@
         "format-ethernet": "", 
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "⚠",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "alacritty -e nmtui",
+        "on-click-right": "alacritty --hold -e speedtest-cli"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

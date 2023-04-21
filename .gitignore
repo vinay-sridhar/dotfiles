@@ -24,3 +24,5 @@ xfce4/
 QtProject.conf
 rygel.conf
 wpa_supplicant-eno1.conf
+mimeapps.list
+thefuck/

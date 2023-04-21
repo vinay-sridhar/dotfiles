@@ -11,13 +11,6 @@ set -x VISUAL nvim
 # Add /usr/sbin to path
 set -x PATH /usr/sbin $PATH
 
-# Make firefox using wayland
-if [ $XDG_SESSION_TYPE = "wayland" ]
-    set -x MOZ_ENABLE_WAYLAND 1
-    set -x MOZ_WEBRENDER 1
-    set -x MOZ_DBUS_REMOTE 1
-end
-
 # ALIASES
 ################################################################################################################################
 
@@ -25,6 +18,7 @@ alias l='ls'
 alias py='python3'
 alias v='nvim'
 alias ll='exa --long --all --header'
+thefuck --alias | source
 
 # FUNCTIONS
 ################################################################################################################################
@@ -51,7 +45,11 @@ end
 
 # Launch abacus with password  
 function abacus
-    ssh vinay.s@abacus.iiit.ac.in
+    if [ "-X" = $argv[1] ]
+        ssh -X vinay.s@abacus.iiit.ac.in
+    else
+        ssh vinay.s@abacus.iiit.ac.in
+    end
 end 
 
 # Copy from abacus to local 
@@ -74,18 +72,6 @@ function phd
 end
 complete -c phd -n '__fish_seen_subcommand_from mount' -a 'mount unmount'
 
-# Git add, commit message and push, argument is the commit message
-function gitp
-    git add .
-    git commit -m $argv[1]
-    git push
-end
-
-# Dnf upgrade
-function dnfup
-    sudo dnf clean all && sudo dnf upgrade -y
-end 
-
 # Wifi connect
 function wifi
     if [ "list" = $argv[1] ]
@@ -94,5 +80,14 @@ function wifi
         sudo nmcli device wifi connect $argv[2] password $argv[3]
     else if [ "up" = $argv[1] ]
         sudo nmcli con up $argv[2]
+    end
+end
+
+function sudo
+    if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+    else
+        command sudo $argv
     end
 end
