@@ -33,9 +33,9 @@ output * bg ~/Pictures/Wallpapers/ogzqgtr6ul391.jpg fill
 
 # Indicator for low battery
 # exec --no-startup-id sh -c 'while true; do
-#     if [ "$(cat /sys/class/power_supply/BAT1/capacity)" -lt 10 ]; then
+#     if test "$(cat /sys/class/power_supply/BAT1/capacity)" -lt 10
 #         swaynag "Battery low" -m "Battery level is below 10%"
-#     fi
+#     end
 #     sleep 360
 # done'
 #
@@ -128,7 +128,13 @@ for_window [class=".*"] border_radius 10
     bindsym ctrl+Mod1+Delete exec $term -t btm -e btm
 
     # Toggle control center
-    bindsym $mod+Shift+n exec swaync-client -t -sw
+    bindsym $mod+Shift+d exec swaync-client -t -sw
+
+    # Switch to lab_lan 
+    bindsym $mod+n exec nmcli con up lab_lan
+
+    # Switch to LAN 
+    bindsym $mod+Shift+n exec nmcli con up LAN
 
     # Mirror $laptop_mon
     bindsym $mod+m exec $term -e wl-mirror $laptop_mon

@@ -88,7 +88,7 @@ tooltip {
 #tray,
 #backlight {
     background: #1e1e2e;
-    padding: 0px 8px;
+    padding: 0px 6px;
     margin: 0px 0px;
     margin-top: 5px;
     border: 1px solid #181825;
@@ -135,9 +135,15 @@ window#waybar.empty #window {
 
 #clock {
     color: #fab387;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 0px 0px 10px;
     margin-left: 5px;
     border-right: 0px;
+}
+
+#custom-notification {
+    color: #fab387;
+    border-radius: 0px 10px 10px 0px;
+    padding-right: 9px;
 }
 
 #network {

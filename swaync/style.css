@@ -91,6 +91,33 @@
   padding: 14px;
 }
 
+.widget-menubar,
+.widget-buttons-grid {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: @current-line;
+}
+
+.widget-menubar > box > .menu-button-bar > button {
+  margin: 5px;
+  padding: 5px 100px;
+  border: 1 solid @accent;
+  font-size: 20px;
+  background: #3d2358;
+  border-radius: 10px;
+}
+
+.widget-menubar button,
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 5px;
+  padding: 5px 50px;
+  border: 1 solid @accent;
+  font-size: 20px;
+  background: #3d2358;
+  border-radius: 10px;
+}
+
 .control-center .widget-title {
   color: #cad3f5;
   font-size: 1.3em;

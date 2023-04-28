@@ -7,9 +7,9 @@
     "gtk-layer-shell": true,
     "height": 0,
     // Choose the order of the modules
-    "modules-left": ["clock", "sway/scratchpad", "sway/mode", "sway/workspaces"],
+    "modules-left": ["clock", "custom/notification",  "sway/scratchpad", "sway/mode", "sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "custom/notification", "battery"],
+    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "battery"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
