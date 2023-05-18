@@ -302,8 +302,8 @@ bindsym $mod+r mode "resize"
 #
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 # Save screenshot in ~/Pictures/Screenshots
-bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-
+# bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym $mod+Print exec bash -c 'focused_window=$(swaymsg -t get_tree | jq -r ".. | select(.focused?) | .name"); grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)_${focused_window// /_}.png'
 
 #
 # Status Bar:

@@ -11,13 +11,18 @@ set -x VISUAL nvim
 # Add /usr/sbin to path
 set -x PATH /usr/sbin $PATH
 
+# BINDINGS
+bind \b 'backward-kill-word'
+
 # ALIASES
 ################################################################################################################################
 
-alias l='ls'
+alias ls='lsd'
+alias l='lsd'
 alias py='python3'
 alias v='nvim'
-alias ll='exa --long --all --header'
+alias ll='lsd -al'
+alias e='exit'
 thefuck --alias | source
 
 # FUNCTIONS
@@ -45,7 +50,7 @@ end
 
 # Launch abacus with password  
 function abacus
-    if [ "-X" = $argv[1] ]
+    if [ "-X" = "$argv[1]" ]
         ssh -X vinay.s@abacus.iiit.ac.in
     else
         ssh vinay.s@abacus.iiit.ac.in
@@ -54,7 +59,7 @@ end
 
 # Copy from abacus to local 
 function cpabacus
-    if [ "-r" = $argv[1] ]
+    if [ "-r" = "$argv[1]" ]
         scp -r vinay.s@abacus.iiit.ac.in:$argv[2] . 
     else 
         scp vinay.s@abacus.iiit.ac.in:$argv[1] . 
@@ -63,11 +68,23 @@ end
 
 # Mount sda1 using udisksctl
 function phd
-    if [ "mount" = $argv[1] ]
-       udisksctl mount -b /dev/sda1 && cd /run/media/karet/PHD/ && ranger
-    else if [ "unmount" = $argv[1] ]
+    set device_path "/dev/sda1"
+    set mount_path "/run/media/karet/PHD"
+    if [ "mount" = "$argv[1]" ]
+        if mount | grep $device_path
+            echo "Device already mounted"
+        else
+            udisksctl mount -b $device_path && cd $mount_path && ranger
+        end
+    else if [ "unmount" = "$argv[1]" ]
         cd
-        udisksctl unmount -b /dev/sda1
+        udisksctl unmount -b $device_path
+    else
+        if mount | grep $device_path
+            cd $mount_path && ranger
+        else 
+            echo "Usage phd [mount|unmount]"
+        end
     end
 end
 complete -c phd -n '__fish_seen_subcommand_from mount' -a 'mount unmount'

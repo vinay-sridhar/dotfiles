@@ -1,4 +1,5 @@
 Code/
+microsoft-edge/
 microsoft-edge-dev/
 systemd/
 vlc/
@@ -8,6 +9,7 @@ enchant/
 dconf/
 ibus/
 neofetch/
+pulse/
 htop/
 matplotlib/
 enchant/
