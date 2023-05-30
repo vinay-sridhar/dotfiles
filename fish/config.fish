@@ -22,8 +22,10 @@ alias l='lsd'
 alias py='python3'
 alias v='nvim'
 alias ll='lsd -al'
+alias q='exit'
 alias e='exit'
 thefuck --alias | source
+alias avogadro2='env QT_QPA_PLATFORM=xcb avogadro2'
 
 # FUNCTIONS
 ################################################################################################################################

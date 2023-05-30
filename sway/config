@@ -1,11 +1,4 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
 
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -21,49 +14,20 @@ set $term alacritty
 set $menu exec wofi --show drun --term $term
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/ogzqgtr6ul391.jpg fill
-#
-# Example configuration:
-#
-#   output $lab_mon resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
+output * bg /home/karet/.config/Wallpapers/win.jpg fill
 # Indicator for low battery
-# exec --no-startup-id sh -c 'while true; do
-#     if test "$(cat /sys/class/power_supply/BAT1/capacity)" -lt 10
-#         swaynag "Battery low" -m "Battery level is below 10%"
-#     end
-#     sleep 360
-# done'
-#
+exec --no-startup-id sh /home/karet/Downloads/Applications/low_battery.sh
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 #
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
+input "2:14:SynPS/2_Synaptics_TouchPad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -83,8 +47,6 @@ workspace 8 output $lab_mon
 workspace 9 output $lab_mon
 workspace 10 output $lab_mon
 
-# When monitor is connected show message using swaynag asking if screen should be mirrored using wl-mirror or act as a second display
-
 # Remove titebar for each window 
 default_border none
 default_floating_border none
@@ -93,9 +55,6 @@ titlebar_padding 1
 titlebar_border_thickness 0
 
 # On startup 
-# Enable autotiling
-exec --no-startup-id autotiling
-
 exec --no-startup-id systemctl --user stop pipewire.service pipewire.socket
 
 # Launch apps
@@ -107,16 +66,13 @@ exec --no-startup-id swaync
 # Add gaps between windows showing the wallpaper behind
 gaps inner 4
 
-# Add rounded corners to windows
-for_window [class=".*"] border pixel 1
-for_window [class=".*"] border_radius 10
-
 ### Key bindings
-#
 # Basics:
 #
     # Lock screen using swaylock
     bindsym $mod+x exec swaylock -f -F -i ~/Pictures/Wallpapers/lq2go1u9fo7a1.png --inside-color 00000000 --indicator-thickness 7 --indicator-radius 65 --ring-color 000000 --text-color 100000
+
+    bindsym $mod+Escape exec wlogout
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -125,7 +81,7 @@ for_window [class=".*"] border_radius 10
     bindsym $mod+Shift+Return exec $term -t ranger -e ranger
 
     # Start btm on $term with ctrl+alt+delete 
-    bindsym ctrl+Mod1+Delete exec $term -t btm -e btm
+    bindsym ctrl+Mod1+Delete exec $term -t btop -e btop
 
     # Toggle control center
     bindsym $mod+Shift+d exec swaync-client -t -sw
@@ -263,9 +219,6 @@ for_window [class=".*"] border_radius 10
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
@@ -276,10 +229,6 @@ for_window [class=".*"] border_radius 10
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 30px
     bindsym $down resize grow height 30px
     bindsym $up resize shrink height 30px

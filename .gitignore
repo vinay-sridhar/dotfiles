@@ -1,3 +1,4 @@
+ttyper/
 Code/
 microsoft-edge/
 microsoft-edge-dev/
@@ -28,3 +29,4 @@ rygel.conf
 wpa_supplicant-eno1.conf
 mimeapps.list
 thefuck/
+.luarc.json
