@@ -8,6 +8,9 @@ set -g fish_greeting
 set -x EDITOR nvim
 set -x VISUAL nvim
 
+# For multiwfn 
+set -x OMP_STACKSIZE 200M
+
 # Add /usr/sbin to path
 set -x PATH /usr/sbin $PATH
 
@@ -24,8 +27,10 @@ alias v='nvim'
 alias ll='lsd -al'
 alias q='exit'
 alias e='exit'
+alias r='ranger'
 thefuck --alias | source
 alias avogadro2='env QT_QPA_PLATFORM=xcb avogadro2'
+alias abacus='ssh -X vinay.s@abacus.iiit.ac.in'
 
 # FUNCTIONS
 ################################################################################################################################
@@ -51,22 +56,13 @@ function pdfconv
 end
 
 # Launch abacus with password  
-function abacus
-    if [ "-X" = "$argv[1]" ]
-        ssh -X vinay.s@abacus.iiit.ac.in
-    else
-        ssh vinay.s@abacus.iiit.ac.in
-    end
-end 
-
-# Copy from abacus to local 
-function cpabacus
-    if [ "-r" = "$argv[1]" ]
-        scp -r vinay.s@abacus.iiit.ac.in:$argv[2] . 
-    else 
-        scp vinay.s@abacus.iiit.ac.in:$argv[1] . 
-    end 
-end 
+# function abacus
+#     if [ "-X" = "$argv[1]" ]
+#         ssh -X vinay.s@abacus.iiit.ac.in
+#     else
+#         ssh vinay.s@abacus.iiit.ac.in
+#     end
+# end 
 
 # Mount sda1 using udisksctl
 function phd
@@ -109,4 +105,12 @@ function sudo
     else
         command sudo $argv
     end
+end
+
+function installed
+    dnf list installed | grep -Ei $argv[1]
+end
+
+function up
+    sudo dnf upgrade
 end

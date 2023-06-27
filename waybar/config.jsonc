@@ -41,6 +41,7 @@
         "exec": "echo $(( $(dnf check-update | wc -l) - 1 ))",
         "interval": 7200,
         "format": " {}",
+        "on-click": "alacritty --hold -e sudo dnf upgrade"
     },
     "custom/notification": {
                 "tooltip": false,

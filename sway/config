@@ -15,9 +15,6 @@ set $menu exec wofi --show drun --term $term
 
 ### Output configuration
 output * bg /home/karet/.config/Wallpapers/win.jpg fill
-# Indicator for low battery
-exec --no-startup-id sh /home/karet/Downloads/Applications/low_battery.sh
-
 
 ### Input configuration
 #
@@ -55,10 +52,10 @@ titlebar_padding 1
 titlebar_border_thickness 0
 
 # On startup 
-exec --no-startup-id systemctl --user stop pipewire.service pipewire.socket
 
 # Launch apps
 exec firefox-wayland
+exec firefox-wayland -P karet
 
 # Notification Daemon
 exec --no-startup-id swaync
@@ -70,12 +67,13 @@ gaps inner 4
 # Basics:
 #
     # Lock screen using swaylock
-    bindsym $mod+x exec swaylock -f -F -i ~/Pictures/Wallpapers/lq2go1u9fo7a1.png --inside-color 00000000 --indicator-thickness 7 --indicator-radius 65 --ring-color 000000 --text-color 100000
-
-    bindsym $mod+Escape exec wlogout
+    bindsym $mod+x exec swaylock 
 
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Wlogout screen
+    bindsym $mod+Escape exec wlogout
 
     # Start ranger on $term 
     bindsym $mod+Shift+Return exec $term -t ranger -e ranger

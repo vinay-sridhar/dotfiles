@@ -30,3 +30,5 @@ wpa_supplicant-eno1.conf
 mimeapps.list
 thefuck/
 .luarc.json
+gedit/
+pulse/

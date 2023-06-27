@@ -22,11 +22,14 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 	sudo yay -S --noconfirm alacritty firefox thunar light subversion fish neovim vim ranger evince grace htop btop zip tldr util-linux-user python3-pip gcc gcc-c++ npm avogadro2 bat calc camorama cowsay gimp libreoffice imv youtube-dl dunst && echo "Your packages have been installed!"
 fi
 
-
-#### hyprland ####
+#### WAYLAND ####
+read -n1 -rep 'Would you like to install wayland utilities? (y,n)' INST
+if [[ $INST == "Y" || $INST == "y" ]]; then
+	sudo yay -S --noconfirm imagemagick wf-recorder wl-clipboard wlogout wofi wofi-emoji wtype swaylock-effects 
+## hyprland ##
 read -n1 -rep 'Would you like to install hyprland? (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
-	sudo yay -S --noconfirm colord ffmpeghumbnailer grimblast grimblast-git hyprland-git hyprpaper-git hyprpicker-git imagemagick polkit-kde-agent qt5-wayland qt6-wayland ripgrep swaylock-effects tumbler waybar-hyprland-git wf-recorder wl-clipboard wlogout wofi wofi-emoji wtype xdg-desktop-portal-hyprland-git && echo "Hyprland has been installed!"
+	sudo yay -S --noconfirm colord ffmpeghumbnailer grimblast grimblast-git hyprland-git hyprpaper-git hyprpicker-git polkit-kde-agent qt5-wayland qt6-wayland ripgrep tumbler waybar-hyprland-git xdg-desktop-portal-hyprland-git && echo "Hyprland has been installed!"
 fi
 
 
