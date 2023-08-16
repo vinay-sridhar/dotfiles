@@ -31,6 +31,8 @@ alias r='ranger'
 thefuck --alias | source
 alias avogadro2='env QT_QPA_PLATFORM=xcb avogadro2'
 alias abacus='ssh -X vinay.s@abacus.iiit.ac.in'
+alias up='sudo dnf upgrade'
+alias myenv='source ~/env/bin/activate.fish'
 
 # FUNCTIONS
 ################################################################################################################################
@@ -107,10 +109,10 @@ function sudo
     end
 end
 
-function installed
-    dnf list installed | grep -Ei $argv[1]
+function pdfcompress
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=compressed_$argv[1] $argv[1]  
 end
 
-function up
-    sudo dnf upgrade
+function ttyper
+    cowsay 'lul'
 end
