@@ -6,13 +6,11 @@
     "passtrough": false,
     "gtk-layer-shell": true,
     "height": 0,
-    // Choose the order of the modules
     "modules-left": ["clock", "sway/scratchpad", "sway/mode", "sway/workspaces"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "battery"],
-    // Modules configuration
      "sway/workspaces": {
-         "disable-scroll": true,
+         "disable-scroll": false,
          "all-outputs": true,
 	 "on-click": "activate",
          "format": "{icon}",
@@ -42,30 +40,6 @@
         "interval": 7200,
         "format": " {}",
         "on-click": "alacritty --hold -e sudo dnf upgrade"
-    },
-    "custom/notification": {
-                "tooltip": false,
-                "format": "{icon}",
-                "format-icons": {
-                     "notification": "<span foreground='red'><sup></sup></span>",
-                     "none": "",
-                     "dnd-notification": "<span foreground='red'><sup></sup></span>",
-                     "dnd-none": "",
-                     "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-                     "inhibited-none": "",
-                     "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-                     "dnd-inhibited-none": ""
-                },
-                "return-type": "json",
-                "exec-if": "which swaync-client",
-                "exec": "swaync-client -swb",
-                "on-click": "swaync-client -t -sw",
-                "on-click-right": "swaync-client -d -sw",
-                "escape": true
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
     },
     "clock": {
     	"format": "{:%I:%M %p   %d/%m}",
@@ -130,18 +104,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
 

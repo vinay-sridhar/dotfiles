@@ -11,7 +11,8 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu exec wofi --show drun --term $term
+# set $menu exec wofi --show drun --term $term
+set $menu fuzzel
 
 ### Output configuration
 output * bg /home/karet/.config/Wallpapers/win.jpg fill
