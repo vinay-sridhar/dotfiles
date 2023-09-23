@@ -1,12 +1,14 @@
-- Window manager: sway
+- Window manager: Hyprland
 - Status bar: Waybar
-- Launcher: wofi
-- Terminal: Alacritty
+- Launcher: fuzzel
+- Terminal: Wezterm
 - Shell: fish
 - File manager: Ranger; Thunar
 - Terminal task manager: bottom
+- Editor: Neovim; VSCodium
 
 # Setup
-![Setup screenshot](./screenshots/2023-04-01.png)
+![Setup screenshot](./screenshots/2023-09-23.png)
 
-Waybar config C: [linuxmobile/hyprland-dots](https://github.com/linuxmobile/hyprland-dots)
+Credits: 
+[linuxmobile/hyprland-dots](https://github.com/linuxmobile/hyprland-dots)
