@@ -1,0 +1,115 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    // Choose the order of the modules
+    "modules-left": ["clock", "sway/scratchpad", "sway/mode", "sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "custom/updates", "network", "battery"],
+    // Modules configuration
+     "sway/workspaces": {
+         "disable-scroll": false,
+         "all-outputs": true,
+	 "on-click": "activate",
+         "format": "{icon}",
+     	"format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+          }
+     },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "custom/updates": {
+        "exec": "echo $(( $(dnf check-update | wc -l) - 1 ))",
+        "interval": 7200,
+        "format": " {}",
+        "on-click": "alacritty --hold -e sudo dnf upgrade"
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+    	"format": "{:%I:%M %p   %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "firefox https://calendar.google.com/calendar/u/0/r/week",
+        "on-click-right": "firefox --new-window https://calendar.google.com/calendar/u/0/r/week"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false, 
+        "on-click": "alacritty -e btm"
+    },
+    "memory": {
+        "format": "{}% 🁐",
+        "on-click": "alacritty -e btm"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "☼ {percent}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "", 
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "⚠",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "alacritty -e nmtui",
+        "on-click-right": "alacritty --hold -e speedtest-cli"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "phone": "",
+            "portable": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
+

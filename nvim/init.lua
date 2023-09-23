@@ -84,7 +84,8 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {}
+       ,tag="legacy" },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -113,11 +114,12 @@ require('lazy').setup({
   },
 
   { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'romainl/vim-dichromatic',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'dichromatic'
     end,
+    -- nvim_tree = { contrast = true }
   },
 
   { -- Set lualine as statusline
@@ -126,7 +128,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = '16color',
         component_separators = '|',
         section_separators = '',
       },
