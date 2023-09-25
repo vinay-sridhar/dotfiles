@@ -19,8 +19,8 @@ button:focus, button:active, button:hover {
 	outline-style: none;
 }
 
-#lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+#exit {
+    background-image: image(url("/home/karet/.config/wlogout/hypr_logo.png"), url("/home/karet/.config/wlogout/hypr_logo.png"));
 }
 
 #logout {

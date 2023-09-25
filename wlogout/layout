@@ -1,7 +1,7 @@
 {
-    "label" : "lock",
-    "action" : "swaylock",
-    "text" : "Lock",
+    "label" : "exit",
+    "action" : "hyperctl dispatch exit",
+    "text" : "Exit WM",
     "keybind" : "l"
 }
 {

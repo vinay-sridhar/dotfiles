@@ -63,6 +63,10 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
+--
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
@@ -120,6 +124,29 @@ require('lazy').setup({
       vim.cmd.colorscheme 'dichromatic'
     end,
     -- nvim_tree = { contrast = true }
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {
+      sort_by = "case_sensitive",
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = true,
+      },
+      }
+    end,
   },
 
   { -- Set lualine as statusline
@@ -293,6 +320,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>rp', ':w % <Bar> :!python % <CR>', { desc = '[R]un [P]ython' })
+vim.keymap.set('n', '<leader>fm', ':NvimTreeToggle <CR>', { desc = 'Open nvim-tree [F]ile [M]anager' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
