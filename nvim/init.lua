@@ -236,6 +236,9 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+-- For dividing line on split
+vim.opt.fillchars = vim.opt.fillchars + { vert = "|" }
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
