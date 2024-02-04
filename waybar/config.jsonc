@@ -25,9 +25,7 @@
   // Modules configuration
   "clock": {
     "format": "{:%I:%M %p   %d/%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "firefox https://calendar.google.com/calendar/u/0/r/week",
-    "on-click-right": "firefox --new-window https://calendar.google.com/calendar/u/0/r/week"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "hyprland/workspaces": {
     "active-only": false,
