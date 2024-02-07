@@ -4,6 +4,9 @@ return {
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
 
+	-- Spawn a fish shell in login mode
+	default_prog = { '/usr/bin/fish', '-l' }, 
+
 	-- color_scheme = 'Catppuccin Mocha',
 
 	warn_about_missing_glyphs = false,

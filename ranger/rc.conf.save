@@ -1,9 +1,10 @@
-# ===================================================================
-# This file contains the default startup commands for ranger.
-# To change them, it is recommended to create either /etc/ranger/rc.conf
-# (system-wide) or ~/.config/ranger/rc.conf (per user) and add your custom
+# =================================================================== 
+# This file contains the default startup commands for 
+# ranger. To change them, it is recommended to create 
+# either /etc/ranger/rc.conf (system-wide) or 
+# ~/.config/ranger/rc.conf (per user) and add your custom 
 # commands there.
-#
+
 # If you copy this whole file there, you may want to set the environment
 # variable RANGER_LOAD_DEFAULT_RC to FALSE to avoid loading it twice.
 #
@@ -364,7 +365,7 @@ map <A-k> scroll_preview -1
 map ? help
 map W display_log
 map w taskview_open
-map S shell /usr/bin/fish
+map S shell $SHELL
 
 map :  console
 map ;  console
