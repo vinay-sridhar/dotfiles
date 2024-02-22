@@ -1,34 +1,3 @@
-daemonize
-show-failed-attempts
-screenshot
-effect-blur=9x5
-effect-vignette=0.5:0.5
-color=1f1d2e80
-font="Inter"
-indicator
-indicator-radius=150
+indicator-radius=80
 indicator-thickness=15
-line-color=1f1d2e
-ring-color=191724
-inside-color=1f1d2e
-key-hl-color=a6e3a1
-separator-color=00000000
-text-color=e0def4
-text-caps-lock-color=""
-line-ver-color=a6e3a1
-ring-ver-color=a6e3a1
-inside-ver-color=1f1d2e
-text-ver-color=e0def4
-ring-wrong-color=ba1c31
-text-wrong-color=ba1c31
-inside-wrong-color=1f1d2e
-inside-clear-color=1f1d2e
-text-clear-color=e0def4
-ring-clear-color=9ccfd8
-line-clear-color=1f1d2e
-line-wrong-color=1f1d2e
-bs-hl-color=31748f
-datestr=%a, %B %e
-timestr=%I:%M %p
-fade-in=0.2
-ignore-empty-password
+image="/home/karet/.config/Wallpapers/wallpaperflare.com_wallpaper.jpg"
